@@ -3,101 +3,137 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ANCALAGON SYSTEMS — Coming Soon</title>
+<title>ANCALAGON INDUSTRIES</title>
+
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&family=Roboto+Mono:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto+Mono:wght@300;400&display=swap');
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    body {
-        background: #0b0b0b;
-        color: #e5e5e5;
-        font-family: "Oswald", sans-serif;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-    }
+body{
+    height:100vh;
+    background:#0a0a0a;
+    overflow:hidden;
+    position:relative;
+    color:#fff;
+    font-family:"Oswald",sans-serif;
+}
 
-    h1 {
-        font-size: 3.8rem;
-        letter-spacing: 6px;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: #ffffff;
-    }
+/* ---- Background image ---- */
+.hero-bg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url('dragon.jpg') center/cover no-repeat;
+    filter:brightness(25%) contrast(110%);
+    opacity:0;
+    animation:fadeIn 2s ease forwards;
+    transform:scale(1.12);
+}
 
-    p {
-        margin-top: 20px;
-        font-family: "Roboto Mono", monospace;
-        font-size: 1rem;
-        opacity: 0.8;
-    }
+/* subtle bg zoom motion */
+@keyframes fadeIn{
+    0%{opacity:0; transform:scale(1.25);}
+    100%{opacity:1; transform:scale(1.1);}
+}
 
-    .accent {
-        color: #C41E1E;
-    }
+/* dark gradient overlay */
+.overlay{
+    position:absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+}
 
-    /* Radar pulse animation */
-    .pulse {
-        width: 180px;
-        height: 180px;
-        border: 2px solid rgba(255, 0, 0, 0.3);
-        border-radius: 50%;
-        position: absolute;
-        animation: ping 2.6s infinite ease-out;
-    }
+/* content */
+.container{
+    position:relative;
+    z-index:10;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    animation:fadeUp 1.8s ease forwards;
+    opacity:0;
+    padding:20px;
+}
 
-    @keyframes ping {
-        0% { transform: scale(0.4); opacity: 0.8; }
-        100% { transform: scale(2.4); opacity: 0; }
-    }
+@keyframes fadeUp{
+    0%{opacity:0; transform:translateY(30px);}
+    100%{opacity:1; transform:translateY(0);}
+}
 
-    /* Subtle scan lines effect */
-    .scan {
-        pointer-events: none;
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100%;
-        background: repeating-linear-gradient(
-            to bottom,
-            rgba(255,255,255,0.01) 0px,
-            rgba(255,255,255,0.01) 1px,
-            transparent 2px,
-            transparent 4px
-        );
-        opacity: 0.12;
-    }
+h1{
+    font-size:4rem;
+    letter-spacing:8px;
+    font-weight:600;
+    text-transform:uppercase;
+}
 
-    footer {
-        position: absolute;
-        bottom: 25px;
-        font-family: "Roboto Mono", monospace;
-        font-size: 0.75rem;
-        opacity: 0.5;
-        letter-spacing: 2px;
-    }
+.highlight{
+    color:#c41e1e;
+}
+
+p{
+    margin-top:20px;
+    font-size:1.1rem;
+    font-family:"Roboto Mono", monospace;
+    opacity:0.85;
+}
+
+/* scanline */
+.scan{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.015) 0px,
+        rgba(255,255,255,0.015) 2px,
+        transparent 4px,
+        transparent 6px
+    );
+    opacity:0.15;
+    pointer-events:none;
+}
+
+/* footer */
+footer{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    text-align:center;
+    font-family:"Roboto Mono", monospace;
+    font-size:0.8rem;
+    opacity:0.5;
+    letter-spacing:2px;
+}
+
 </style>
 </head>
+
 <body>
 
-<div class="pulse"></div>
+<div class="hero-bg"></div>
+<div class="overlay"></div>
 
-<h1>ANCALAGON <span class="accent">SYSTEMS</span></h1>
-<p>Autonomous Defense, ISR and Tactical Systems.<br>Deployment in Progress.</p>
+<div class="container">
+    <h1>ANCALAGON <span class="highlight">INDUSTRIES</span></h1>
+    <p>Autonomous Defense Systems • ISR Platforms • Next-Generation Warfare</p>
+</div>
 
 <div class="scan"></div>
 
-<footer>[CLASSIFIED ACCESS] — MIL-STD-UI/01 — ALL RIGHTS RESERVED</footer>
+<footer>[ CLASSIFIED ACCESS — PROTOTYPE BUILD — DO NOT DISTRIBUTE ]</footer>
 
 </body>
 </html>
