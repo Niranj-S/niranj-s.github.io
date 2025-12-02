@@ -1,59 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ANCALAGON SYSTEMS — Coming Soon</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&family=Roboto+Mono:wght@300;400&display=swap');
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #0f0f0f;
-            color: #ffffff;
-            text-align: center;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-        }
+    body {
+        background: #0b0b0b;
+        color: #e5e5e5;
+        font-family: "Oswald", sans-serif;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
 
-        p {
-            margin-top: 10px;
-            opacity: 0.7;
-        }
+    h1 {
+        font-size: 3.8rem;
+        letter-spacing: 6px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #ffffff;
+    }
 
-        .loader {
-            margin: 30px auto 0;
-            width: 60px;
-            height: 60px;
-            border: 6px solid rgba(255, 255, 255, 0.2);
-            border-top-color: #ffffff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
+    p {
+        margin-top: 20px;
+        font-family: "Roboto Mono", monospace;
+        font-size: 1rem;
+        opacity: 0.8;
+    }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+    .accent {
+        color: #C41E1E;
+    }
+
+    /* Radar pulse animation */
+    .pulse {
+        width: 180px;
+        height: 180px;
+        border: 2px solid rgba(255, 0, 0, 0.3);
+        border-radius: 50%;
+        position: absolute;
+        animation: ping 2.6s infinite ease-out;
+    }
+
+    @keyframes ping {
+        0% { transform: scale(0.4); opacity: 0.8; }
+        100% { transform: scale(2.4); opacity: 0; }
+    }
+
+    /* Subtle scan lines effect */
+    .scan {
+        pointer-events: none;
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.01) 0px,
+            rgba(255,255,255,0.01) 1px,
+            transparent 2px,
+            transparent 4px
+        );
+        opacity: 0.12;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 25px;
+        font-family: "Roboto Mono", monospace;
+        font-size: 0.75rem;
+        opacity: 0.5;
+        letter-spacing: 2px;
+    }
+</style>
 </head>
 <body>
-    <div>
-        <h1>🚧 PODA MAIRE 🚧</h1>
-        <p>We're building something cool. Stay tuned!</p>
-        <div class="loader"></div>
-    </div>
+
+<div class="pulse"></div>
+
+<h1>ANCALAGON <span class="accent">SYSTEMS</span></h1>
+<p>Autonomous Defense, ISR and Tactical Systems.<br>Deployment in Progress.</p>
+
+<div class="scan"></div>
+
+<footer>[CLASSIFIED ACCESS] — MIL-STD-UI/01 — ALL RIGHTS RESERVED</footer>
+
 </body>
 </html>
