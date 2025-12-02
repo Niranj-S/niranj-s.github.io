@@ -31,25 +31,39 @@ body{
     width:100%;
     height:100%;
     background:url('dragon.jpg') center/cover no-repeat;
-    filter:brightness(25%) contrast(110%);
+    filter:brightness(85%) contrast(120%);
     opacity:0;
     animation:fadeIn 2s ease forwards;
     transform:scale(1.12);
+    transition:transform 0.8s ease-out;
 }
 
-/* subtle bg zoom motion */
-@keyframes fadeIn{
-    0%{opacity:0; transform:scale(1.25);}
-    100%{opacity:1; transform:scale(1.1);}
+/* Subtle parallax-style zoom on hover */
+body:hover .hero-bg{
+    transform:scale(1.15);
 }
 
-/* dark gradient overlay */
-.overlay{
+/* spotlight center */
+.hero-bg:after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:135%;
+    height:135%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 70%);
+    pointer-events:none;
+}
+
+/* subtle red ambient glow */
+.hero-bg:before{
+    content:"";
     position:absolute;
     top:0; left:0;
-    width:100%;
-    height:100%;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+    width:100%; height:100%;
+    background:radial-gradient(circle at 60% 50%, rgba(140,0,0,0.25), rgba(0,0,0,0));
+    pointer-events:none;
 }
 
 /* content */
@@ -73,7 +87,7 @@ body{
 }
 
 h1{
-    font-size:4rem;
+    font-size:4.2rem;
     letter-spacing:8px;
     font-weight:600;
     text-transform:uppercase;
@@ -87,18 +101,19 @@ p{
     margin-top:20px;
     font-size:1.1rem;
     font-family:"Roboto Mono", monospace;
-    opacity:0.85;
+    opacity:0.9;
 }
 
-/* scanline */
+
+/* scanlines */
 .scan{
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
     background:repeating-linear-gradient(
         to bottom,
-        rgba(255,255,255,0.015) 0px,
-        rgba(255,255,255,0.015) 2px,
+        rgba(255,255,255,0.02) 0px,
+        rgba(255,255,255,0.02) 2px,
         transparent 4px,
         transparent 6px
     );
@@ -106,7 +121,12 @@ p{
     pointer-events:none;
 }
 
-/* footer */
+/* fadein */
+@keyframes fadeIn{
+    0%{opacity:0; transform:scale(1.25);}
+    100%{opacity:1; transform:scale(1.1);}
+}
+
 footer{
     position:absolute;
     bottom:20px;
@@ -114,17 +134,15 @@ footer{
     text-align:center;
     font-family:"Roboto Mono", monospace;
     font-size:0.8rem;
-    opacity:0.5;
+    opacity:0.55;
     letter-spacing:2px;
 }
-
 </style>
 </head>
 
 <body>
 
 <div class="hero-bg"></div>
-<div class="overlay"></div>
 
 <div class="container">
     <h1>ANCALAGON <span class="highlight">INDUSTRIES</span></h1>
